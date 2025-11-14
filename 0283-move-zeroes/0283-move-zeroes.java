@@ -12,27 +12,36 @@ class Solution {
     //     nums[nonZeroes]=0;
     //     nonZeroes++;
     //   }
-
-    Stack<Integer> st=new Stack<>();
-    int cnt=0;
-    
-    for(int i:nums){
-      if(i!=0){
-        st.push(i);
-        cnt++;
-
-      }
-    }
-    int j=cnt-1;
-     while(!st.isEmpty()){
-         nums[j--]=st.pop();
+ ////TWO POINTERS:
+     int j=0;
+     for(int i=0;i<n;i++){
+        if(nums[i]!=0){
+            if(i!=j){
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+                j++;
+            }
+        }
+        
      }
-    
- 
-   for(int c=cnt;c<n;c++){
-    nums[c]=0;
-   }
 
+
+//     Stack<Integer> st=new Stack<>();
+//     int cnt=0;
     
+//     for(int i:nums){
+//       if(i!=0){
+//         st.push(i);
+//         cnt++;
+//         }
+//     }
+//     int j=cnt-1;
+//     while(!st.isEmpty()){
+//          nums[j--]=st.pop();
+//     }
+//     for(int c=cnt;c<n;c++){
+//     nums[c]=0;
+//    }
   }
 }
