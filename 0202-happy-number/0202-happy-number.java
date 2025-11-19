@@ -11,7 +11,7 @@ class Solution {
     public boolean isHappy(int n) {
         int slow=n;
         int fast=n;
-        while(fast!=1){
+        while(fast!=1 && squareOfDigit(fast)!=1 ){
             slow=squareOfDigit(slow);
             fast=squareOfDigit(squareOfDigit(fast));
 
