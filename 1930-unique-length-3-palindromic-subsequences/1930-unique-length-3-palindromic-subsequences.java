@@ -8,11 +8,12 @@ class Solution {
             lastIdx.put(ch,i);
         }
         int count=0;
-        HashSet<Character> set=new HashSet<>();
+       
         for(char ch:firstIdx.keySet()){
             int l=firstIdx.get(ch);
             int r=lastIdx.get(ch);
-            if(l>=r) continue;
+            HashSet<Character> set=new HashSet<>();
+            //if(l>=r) continue;
             for(int i=l+1;i<=r-1;i++){
                 set.add(s.charAt(i));
             }
