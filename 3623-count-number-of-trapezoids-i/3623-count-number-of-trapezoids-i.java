@@ -11,8 +11,8 @@ class Solution {
         //TreeMap<Integer,Integer> tree=new TreeMap<>(map);
         for(int i: map.values() ){
             long horizontalLines=(i*(i-1L)/2L);
-            result=(result+horizontalLines*prevHorizontalLines)%mod;
-            prevHorizontalLines=(prevHorizontalLines+horizontalLines)%mod;
+            result=(result+horizontalLines*prevHorizontalLines);
+            prevHorizontalLines=(prevHorizontalLines+horizontalLines);
         }
         return  (int)(result%mod);
         
