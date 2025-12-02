@@ -8,9 +8,9 @@ class Solution {
         }
         long result=0;
         long prevHorizontalLines=0;
-        TreeMap<Integer,Integer> tree=new TreeMap<>(map);
-        for(int i: tree.values() ){
-            long horizontalLines=((long)i*(i-1)/2%mod);
+        //TreeMap<Integer,Integer> tree=new TreeMap<>(map);
+        for(int i: map.values() ){
+            long horizontalLines=(i*(i-1L)/2L);
             result=(result+horizontalLines*prevHorizontalLines)%mod;
             prevHorizontalLines=(prevHorizontalLines+horizontalLines)%mod;
         }
