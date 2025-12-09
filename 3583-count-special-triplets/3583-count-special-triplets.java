@@ -19,11 +19,11 @@ class Solution {
             int left=leftmap.getOrDefault(target,0);
             int right=rightmap.getOrDefault(target,0);
 
-            result=result+(1L*left*right)%mod;
+            result=(result+(1L*left*right))%mod;
             leftmap.put(ele,leftmap.getOrDefault(ele,0)+1);
         }
 
-        return (int)(result%mod);
+        return (int)result;
         
     }
 }
