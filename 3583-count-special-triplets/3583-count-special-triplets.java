@@ -23,7 +23,7 @@ class Solution {
             leftmap.put(ele,leftmap.getOrDefault(ele,0)+1);
         }
 
-        return (int)result;
+        return (int)(result%mod);
         
     }
 }
