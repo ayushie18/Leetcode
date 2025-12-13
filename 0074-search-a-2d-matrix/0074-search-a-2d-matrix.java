@@ -9,21 +9,34 @@ class Solution {
         //         }
         //     }
         // }
-
-        int lo=0;
-        int hi=n*m-1;
-        while(lo<=hi){
-            int mid=lo+hi-lo/2;
-            int row=mid/m;
-            int col=mid%m;
+        // 2. BINARY SEARCH
+        // int lo=0;
+        // int hi=n*m-1;
+        // while(lo<=hi){
+        //     int mid=lo+hi-lo/2;
+        //     int row=mid/m;
+        //     int col=mid%m;
+        //     if(matrix[row][col]==target){
+        //         return true;
+        //     }
+        //     else if(matrix[row][col]>target){
+        //         hi=mid-1;
+        //     }
+        //     else if(matrix[row][col]<target){
+        //         lo=mid+1;
+        //     }
+        // }
+        // STAIRCASE
+        int row=0;
+        int col=matrix[0].length-1;
+        while(row < matrix.length && col>=0){
             if(matrix[row][col]==target){
-                return true;
+                 return true;}
+            else if (matrix[row][col]>target){
+              col--;
             }
-            else if(matrix[row][col]>target){
-                hi=mid-1;
-            }
-            else if(matrix[row][col]<target){
-                lo=mid+1;
+            else{
+              row++;
             }
         }
       return false;  
