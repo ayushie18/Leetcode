@@ -15,7 +15,7 @@ class Solution {
             }
             else lo=mid+1;
         }
-        return target-1;
+        return lo;
         
     }
 }
