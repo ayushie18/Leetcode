@@ -27,7 +27,7 @@ class Solution {
         ArrayList<String> ans=new ArrayList<>();
         for(int i=0;i<n;i++){
             if( alphanumericalAndUnderscore(code[i]) &&  isvalid(businessLine[i]) &&isActive[i]){
-                int p=priority(code[i]);
+                int p=priority(businessLine[i]);
                 ans.add(p+"#"+code[i]);
             }
         }
