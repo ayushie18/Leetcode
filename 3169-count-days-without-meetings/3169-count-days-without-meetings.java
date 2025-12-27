@@ -1,6 +1,7 @@
 class Solution {
     public int countDays(int days, int[][] meetings) {
-        int gap=0;
+        //int gap=0;
+        int meetingDays=0;
         Arrays.sort(meetings,(a,b)->Integer.compare(a[0],b[0]));
         List<int[]> list=new ArrayList<>();
         list.add(meetings[0]);
@@ -15,12 +16,16 @@ class Solution {
             }
             
         }
-        for(int i=1;i<list.size();i++){
-            gap+=list.get(i)[0]-list.get(i-1)[1]-1;
-        }
-        gap+=list.get(0)[0]-1;
-        gap=gap+days-list.get(list.size()-1)[1];
+        // for(int i=1;i<list.size();i++){//in between gaps
+        //     gap+=list.get(i)[0]-list.get(i-1)[1]-1;
+        // }
+        // gap+=list.get(0)[0]-1;//starting gaps 
+        // gap=gap+days-list.get(list.size()-1)[1];// ending gaps
 
-        return gap;
+        //return gap;
+        for(int i=0;i<list.size();i++){
+            meetingDays=meetingDays+list.get(i)[1]-list.get(i)[0]+1;
+        }
+        return days-meetingDays;
     }
 }
