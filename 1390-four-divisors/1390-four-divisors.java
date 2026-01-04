@@ -1,8 +1,8 @@
 class Solution {
     public int fourdivisors(int n){
-        int count=2;
-        int sum=1+n;
-        for(int i=2;i*i<n;i++){
+        int count=0;
+        int sum=0;
+        for(int i=1;i*i<=n;i++){
             if(n%i==0 ){ 
              int div=n/i;
              if(div==i){
