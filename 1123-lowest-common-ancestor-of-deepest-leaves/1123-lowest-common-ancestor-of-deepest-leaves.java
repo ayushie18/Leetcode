@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    int maxDepth=-1;
+    TreeNode result=null;
+    public int postOrder(TreeNode node, int depth){
+        if(node==null) return depth;
+        int left=postOrder(node.left,depth+1);
+        int right=postOrder(node.right,depth+1);
+        if(left==right){
+            maxDepth=Math.max(left,maxDepth);
+            if(maxDepth==left){
+                result=node;
+            }
+        }
+        return Math.max(left,right);
+    }
+    public TreeNode lcaDeepestLeaves(TreeNode root) {
+        postOrder(root,0);
+        return result;
+    }
+}
