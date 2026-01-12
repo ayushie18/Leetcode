@@ -1,14 +1,13 @@
 class Solution {
-    public boolean isvowel(Character c){
-        if("aeiou".indexOf(c)==-1) return false;
-        return true;
+    public boolean isvowel(char c){
+        return"aeiou".indexOf(c)!=-1;
+
     }
     public int maxVowels(String s, int k) {
         int n=s.length();
         int max=0;
         int count=0;
         for(int i=0;i<k;i++){
-           // int count=0;
             char c=s.charAt(i);
             if(isvowel(c)){
                count++;
