@@ -12,8 +12,8 @@ class Solution {
             if(isvowel(c)){
                count++;
             }
-         max=Math.max(max,count);
         }
+        max=Math.max(max,count);
         for(int i=k;i<n;i++){
             if(isvowel(s.charAt(i))){
                 count++;
