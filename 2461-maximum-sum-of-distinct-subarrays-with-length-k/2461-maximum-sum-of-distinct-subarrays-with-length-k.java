@@ -40,10 +40,11 @@ class Solution {
         for(int i=k;i<n;i++){
          int toAdd=nums[i];
          int toRemove=nums[i-k];
-          if(!map.containsKey(toAdd)){
-                map.put(toAdd,0);
-            }
-            map.put(toAdd,map.get(toAdd)+1);
+        //   if(!map.containsKey(toAdd)){
+        //         map.put(toAdd,0);
+        //     }
+        //     map.put(toAdd,map.get(toAdd)+1);
+        map.put(toAdd,map.getOrDefault(toAdd,0)+1);
             if(map.get(toAdd)>1){
                 dup+=1;
             }
