@@ -8,7 +8,6 @@ class Solution {
             y=y/10;
         }
         return reversed==x;
-
         
     }
 }
