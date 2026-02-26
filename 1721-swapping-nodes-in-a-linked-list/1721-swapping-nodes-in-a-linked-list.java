@@ -9,40 +9,37 @@
  * }
  */
 class Solution {
-    public ListNode kthfromstart(ListNode head,int n){
+    public ListNode swapNodes(ListNode head, int k) {
+        int len=0;
+        int jumps=k-1;
+        
         ListNode temp=head;
-        for(int i=1;i<n;i++){
-            if(temp==null) return null;
+        while(temp!=null){
+            len=len+1;
             temp=temp.next;
         }
-        return temp;
-    }
-    public ListNode kthfromEnd(ListNode head, int n){
-        ListNode slow=head;
-        ListNode fast=head;
-        for(int i=1;i<=n;i++){
-           if(fast==null) return null;
-            fast=fast.next;
 
+        ListNode n1=head;
+        
+        int counter=0;
+        while(counter<jumps){
+            counter++;
+            n1=n1.next;
         }
-        while(fast!=null){
-            slow=slow.next;
-            fast=fast.next;
-
-            
+        ListNode n2=head;
+        counter=0;
+        int jumps2=len-k;
+        while(counter<jumps2){
+            counter++;
+            n2=n2.next;
         }
-        return slow;
-    }
-    public ListNode swapNodes(ListNode head, int k) {
 
-       ListNode t1=kthfromstart( head, k);
-       ListNode t2=kthfromEnd( head, k);
-       int t=t1.val;
-       t1.val=t2.val;
-       t2.val=t;
-       
-       return head;
+        int t=n1.val;
+        n1.val=n2.val;
+        n2.val=t;
 
+
+  return head;
         
     }
 }
