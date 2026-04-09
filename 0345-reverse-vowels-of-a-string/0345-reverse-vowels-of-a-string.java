@@ -1,10 +1,10 @@
 class Solution {
-    public boolean isVowel(char c){
+    public boolean isVowel(char c){//TC:O(1)
         if("aeiouAEIOU".indexOf(c)!=-1) return true;
 
        return false; 
     }
-    public void swap(int a,int b, StringBuilder  sb){
+    public void swap(int a,int b, StringBuilder  sb){//TC:O(1)
         char c= sb.charAt(a);
         sb.setCharAt(a,sb.charAt(b));
         sb.setCharAt(b,c);
