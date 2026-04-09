@@ -12,12 +12,10 @@ class Solution {
             }
             else if(!Character.isLetter(arr[i])) i++;
             else if(!Character.isLetter(arr[j])) j--;
-            else {
-                i++;
-                j--;
-            }
+           
         }
 
-      return String.valueOf(arr);  
+      //return String.valueOf(arr);
+      return new String(arr);  
     }
 }
