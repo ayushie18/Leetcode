@@ -10,6 +10,14 @@ class Solution {
             }
             i++;
         }
+        i=0;
+        j=n-1;
+          while(j>0){
+            if(colors[i]!=colors[j]){
+               ans=Math.max(ans,j-i);
+            }
+            j--;
+        }
       
        
      return ans;
