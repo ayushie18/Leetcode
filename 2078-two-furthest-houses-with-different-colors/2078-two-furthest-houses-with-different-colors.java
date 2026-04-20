@@ -2,15 +2,15 @@ class Solution {
     public int maxDistance(int[] colors) {
         int n=colors.length;
         int ans=Integer.MIN_VALUE;
-       
-        for(int i=0;i<n;i++){
-            for(int j=n-1;j>=0;j--){
-               if(colors[i]!=colors[j]){
-                ans=Math.max(ans,j-i);
-                break;
-               }
+        int j=n-1;
+        int i=0;
+        while(i<n){
+            if(colors[i]!=colors[j]){
+               ans=Math.max(ans,j-i);
             }
+            i++;
         }
+      
        
      return ans;
         
