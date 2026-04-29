@@ -1,20 +1,29 @@
 class Solution {
     public int largestInteger(int num) {
-        char [] arr=Integer.toString(num).toCharArray();
-        for(int i=0;i<arr.length;i++){
-            int maxPos=i;
-            for(int j=i+1;j<arr.length;j++){
-                if(arr[j]>arr[maxPos] &&(arr[j]-arr[i])%2==0){
-                    maxPos=j;
-                }
-            }
-        char temp=arr[i];
-        arr[i]=arr[maxPos];
-        arr[maxPos]= temp;
+        PriorityQueue<Integer> even=new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> odd=new PriorityQueue<>(Collections.reverseOrder());
 
+        String s=Integer.toString(num);
+
+        for(char c:s.toCharArray()){
+            int val=c-'0';
+            if(val%2==0){
+                even.add(val);
+            }
+            else odd.add(val);
         }
 
-    return Integer.parseInt(new String(arr));
+        StringBuilder sb=new StringBuilder();
+        for(char c:s.toCharArray()){
+            int val=c-'0';
+            if(val%2==0){
+                sb.append(even.remove());
+            }
+            else sb.append(odd.remove());
+        }
+        return Integer.parseInt(sb.toString());
+
+
         
     }
 }
