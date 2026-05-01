@@ -1,54 +1,62 @@
+class CharacterCount{
+     int count;
+     char c;
+     public CharacterCount(int _count,char _c){
+        count=_count;
+        c=_c;
+     }
+
+    }
 class Solution {
     public String longestDiverseString(int a, int b, int c) {
-      int count_a=0;
-      int count_b=0;
-      int count_c=0;
+        PriorityQueue<CharacterCount> maxHeap=new PriorityQueue<CharacterCount>((x,y)->y.count-x.count); 
+
+        if(a>0){
+            maxHeap.add( new CharacterCount(a,'a'));
+        }
+         if(b>0){
+            maxHeap.add( new CharacterCount(b,'b'));
+        }
+         if(c>0){
+            maxHeap.add( new CharacterCount(c,'c'));
+        }
+     
 
         StringBuilder res= new StringBuilder();
 
-        while(true){
-            if(a>0 && ((a>=b && a>=c && count_a<2)||
-            (a<=b && a>=c && count_b==2)||
-            (a<=c && a>=b && count_c==2))){
+        while(!maxHeap.isEmpty()){
+            CharacterCount maxEle=maxHeap.poll();
+            int count=maxEle.count;
+            char _c=maxEle.c;
 
-                res.append('a');
-                count_a=count_a+1;
-                count_b=0;
-                count_c=0;
+            if(res.length()>=2 && res.charAt(res.length()-1)==_c && res.charAt(res.length()-2)==_c){
+              if(maxHeap.isEmpty()){
+               break; 
+              } 
 
-                a=a-1;
+              CharacterCount secondMaxEle=maxHeap.poll();
+              int scount=secondMaxEle.count;
+              char sc=secondMaxEle.c;
 
+              res.append(sc);
+              scount=scount-1;
+              if(scount>0){
+                maxHeap.add(new CharacterCount(scount,sc));
+              }
             }
-            else if(b>0 &&((b>=a && b>=c && count_b<2)||
-            (b<=a && b>=c && count_a==2)||
-            (b<=c && b>=a && count_c==2))){
 
-                res.append('b');
-                 count_b=count_b+1;
-                count_a=0;
-                count_c=0;
-
-                b=b-1;
-
-            }
-            else if(c>0 &&((c>=a && c>=b && count_c<2)||
-            (c<=a && c>=b && count_a==2)||
-            (c<=b && c>=a && count_b==2))){
-
-                res.append('c');
-                count_c=count_c+1;
-                count_a=0;
-                count_b=0;
-
-                c=c-1;
-
-            }
             else{
-                break;
-            }
-    }
+                res.append(_c);
+                count--;
+            } 
 
-        return res.toString();
+            if(count>0){
+                maxHeap.add(new CharacterCount(count,_c));
+            }
+        }
+    
+
+     return res.toString();
 
  }
 }
