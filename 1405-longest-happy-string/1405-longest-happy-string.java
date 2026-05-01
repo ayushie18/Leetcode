@@ -46,11 +46,9 @@ class Solution {
             else{
                 break;
             }
-
-        }
+    }
 
         return res.toString();
 
-
-        }
+ }
 }
