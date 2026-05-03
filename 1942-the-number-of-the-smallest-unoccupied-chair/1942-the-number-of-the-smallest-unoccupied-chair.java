@@ -5,19 +5,39 @@ class Solution {
 
         Arrays.sort(times,(a,b)->(a[0]-b[0]));
 
-        int[] chairs= new int[times.length];
+        PriorityQueue<Integer> availableChairs=new PriorityQueue<>();
+        PriorityQueue<int[]> occupiedChairs=new PriorityQueue<>((a,b)->(a[0]-b[0]));
 
         for(int i=0;i<times.length;i++){
-            for(int j=0;j<chairs.length;j++){
-                if(times[i][0]>=chairs[j]){
-                    if(times[i][0]==targetFrdAT) return j;
-                
-                chairs[j]=times[i][1];
-                 break;
-                }
-            }
+            availableChairs.add(i);
         }
-        return -1;
 
-    }
+        for(int i=0;i<times.length;i++){
+             int aT=times[i][0];
+
+             while(!occupiedChairs.isEmpty()){
+                if(aT>=occupiedChairs.peek()[0]){
+                    int[] chair=occupiedChairs.poll();
+                    availableChairs.add(chair[1]);
+                }
+                else{
+                    break;
+                }
+
+             } 
+
+             int c=availableChairs.poll();
+             if(targetFrdAT==aT){
+                 return c;
+             }
+
+            occupiedChairs.add(new int[]{
+                times[i][1],c
+            });    
+
+        }
+
+        return -1;
+        
+   }
 }
