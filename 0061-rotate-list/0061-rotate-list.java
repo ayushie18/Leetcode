@@ -20,7 +20,7 @@ class Solution {
 
         k=k%len;
 
-        if(head==null || k==0) return head;
+       // if(head==null || k==0) return head;
         
         
         temp=head;
