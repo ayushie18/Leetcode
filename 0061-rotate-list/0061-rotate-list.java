@@ -20,9 +20,6 @@ class Solution {
 
         k=k%len;
 
-       // if(head==null || k==0) return head;
-        
-        
         temp=head;
         while(temp.next!=null){
             temp=temp.next;
