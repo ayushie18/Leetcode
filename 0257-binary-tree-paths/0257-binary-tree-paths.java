@@ -20,9 +20,9 @@ class Solution {
             s+=root.val;
             ans.add(s);
         }
-
-        paths(root.left,s+root.val+"->",ans);
         paths(root.right,s+root.val+"->",ans);
+        paths(root.left,s+root.val+"->",ans);
+        
 
     }
     public List<String> binaryTreePaths(TreeNode root) {
