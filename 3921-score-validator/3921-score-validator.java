@@ -4,10 +4,9 @@ class Solution {
         int score=0;
         int counter=0;
         for(int i=0;i<n;i++){
-            if(counter>=10) break;
+            if(counter==10) break;
             String ch=events[i];
             if(ch.equals("W")){
-                
                 counter++;
             }
             else if(ch.equals("WD")){
