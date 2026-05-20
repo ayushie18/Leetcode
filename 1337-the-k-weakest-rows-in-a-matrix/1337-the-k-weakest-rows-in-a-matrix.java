@@ -17,9 +17,16 @@ class Solution {
         });
         for(int i=0;i<mat.length;i++){
             int countOnes=0;
-            for(int j=0;j<mat[0].length;j++){
-                if(mat[i][j]==1) countOnes++;
-             }
+            // for(int j=0;j<mat[0].length;j++){
+            //     if(mat[i][j]==1) countOnes++;
+            //  }
+            int[] row=mat[i];
+            for(int ele:row){
+                if(ele==0)break;
+            
+            countOnes++;
+            }
+
              minHeap.add(new Pair(countOnes,i));
         }
         int[] ans=new int[k];
