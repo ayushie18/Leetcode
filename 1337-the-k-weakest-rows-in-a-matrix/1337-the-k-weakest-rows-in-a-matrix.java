@@ -8,6 +8,22 @@ class Pair{
 
     }
 class Solution {
+    public int binarySearch(int[] arr){
+        int lo=0;
+        int hi=arr.length-1;
+        while(lo<hi){
+            int mid=lo+(hi-lo)/2;
+            if(arr[mid]==1){
+                lo=mid+1;
+            }
+            else{
+                hi=mid;
+            }
+        }
+        if(arr[lo]==1) return arr.length;
+        return lo;
+
+    }
     public int[] kWeakestRows(int[][] mat, int k) {
         PriorityQueue<Pair> minHeap=new PriorityQueue<>((a,b)->{
             if(a.ones==b.ones){
@@ -17,17 +33,11 @@ class Solution {
         });
         for(int i=0;i<mat.length;i++){
             int countOnes=0;
-            // for(int j=0;j<mat[0].length;j++){
-            //     if(mat[i][j]==1) countOnes++;
-            //  }
             int[] row=mat[i];
-            for(int ele:row){
-                if(ele==0)break;
-            
-            countOnes++;
-            }
+            countOnes=binarySearch(mat[i]);
+           
 
-             minHeap.add(new Pair(countOnes,i));
+            minHeap.add(new Pair(countOnes,i));
         }
         int[] ans=new int[k];
         int i=0;
