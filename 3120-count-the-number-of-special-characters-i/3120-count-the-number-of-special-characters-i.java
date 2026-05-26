@@ -1,26 +1,36 @@
 class Solution {
     public int numberOfSpecialChars(String word) {
-        HashSet<Character> Lowerset=new HashSet<>();
-        HashSet<Character> Upperset=new HashSet<>();
-
         int ans=0;
-        for(int i=0;i<word.length();i++){
-            char c=word.charAt(i);
+        // HashSet<Character> Lowerset=new HashSet<>();
+        // HashSet<Character> Upperset=new HashSet<>();
+        // for(int i=0;i<word.length();i++){
+        //     char c=word.charAt(i);
+        //     if(Character.isLowerCase(c)){
+        //         Lowerset.add(c);
+        //     }
+        //     else{
+        //         Upperset.add(c);
+        //     }
+        // } 
+        // for(char ele:Upperset){
+        //     if(Lowerset.contains(Character.toLowerCase(ele))){
+        //         ans++;
+        //     }
+        // }
+        boolean[] lower=new boolean[26];
+        boolean[] upper=new boolean[26];
+        for(char c:word.toCharArray()) {
             if(Character.isLowerCase(c)){
-                Lowerset.add(c);
+                lower[c-'a']=true;
             }
-            else{
-                Upperset.add(c);
-            }
+            else upper[c-'A']=true;
 
         } 
-
-        for(char ele:Upperset){
-            if(Lowerset.contains(Character.toLowerCase(ele))){
+        for(int i=0;i<26;i++){
+            if(lower[i] && upper[i]){
                 ans++;
             }
-        }  
-     
+        }
         return ans;
         
     }
