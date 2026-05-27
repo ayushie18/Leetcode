@@ -35,8 +35,6 @@ class Solution {
             int countOnes=0;
             int[] row=mat[i];
             countOnes=binarySearch(mat[i]);
-           
-
             minHeap.add(new Pair(countOnes,i));
         }
         int[] ans=new int[k];
