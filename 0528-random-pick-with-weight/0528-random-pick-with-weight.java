@@ -14,7 +14,7 @@ class Solution {
         double target=rand*preSum[preSum.length-1];
         int lo=0;
         int hi=preSum.length-1;
-        while(lo<hi){
+        while(lo<hi){// TC:O(logn) * M calls
             int mid=lo+(hi-lo)/2;
             if(target<=preSum[mid]){
                 hi=mid;
@@ -23,8 +23,8 @@ class Solution {
                 lo=mid+1;
             }
         }
-        return lo;
-        // for(int i=0;i<preSum.length;i++){ Linear Search TC:O(n)
+        return hi;
+        // for(int i=0;i<preSum.length;i++){ Linear Search TC:O(n)*M calls
         //    if(target<=preSum[i]){
         //       return i;
         //    }
