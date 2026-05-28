@@ -12,12 +12,24 @@ class Solution {
     public int pickIndex() {
         double rand=Math.random();
         double target=rand*preSum[preSum.length-1];
-        for(int i=0;i<preSum.length;i++){
-           if(target<=preSum[i]){
-              return i;
-           }
+        int lo=0;
+        int hi=preSum.length-1;
+        while(lo<hi){
+            int mid=lo+(hi-lo)/2;
+            if(target<=preSum[mid]){
+                hi=mid;
+            }
+            else {
+                lo=mid+1;
+            }
         }
-        return 0;
+        return lo;
+        // for(int i=0;i<preSum.length;i++){ Linear Search TC:O(n)
+        //    if(target<=preSum[i]){
+        //       return i;
+        //    }
+        // }
+        //return 0;
     }
 }
 
