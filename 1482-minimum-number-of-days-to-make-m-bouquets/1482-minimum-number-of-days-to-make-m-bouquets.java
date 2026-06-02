@@ -38,14 +38,16 @@ class Solution {
             if (val <= day) {
                 flowers++;
             } else {
-               flowers = 0;
-            }
-
-            if (flowers == k) {
-                bouquets++;
+                bouquets+=flowers/k;
                 flowers = 0;
             }
+
+            // if (flowers == k) {
+            //     bouquets++;
+            //     flowers = 0;
+            // }
          }
+         bouquets += flowers / k;// for last segment
 
         return bouquets >= m;
     }
