@@ -38,16 +38,15 @@ class Solution {
             if (val <= day) {
                 flowers++;
             } else {
-                flowers = 0;
+               flowers = 0;
             }
 
             if (flowers == k) {
                 bouquets++;
                 flowers = 0;
             }
-        }
+         }
 
         return bouquets >= m;
-        
     }
 }
