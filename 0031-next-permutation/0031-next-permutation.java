@@ -1,5 +1,5 @@
 class Solution {
-    public int[] reverse(int[] nums, int start, int end){
+    public void reverse(int[] nums, int start, int end){
         int i=start;
         int j=end;
         while(i<j){
@@ -9,7 +9,7 @@ class Solution {
             i++;
             j--;
         }
-        return nums;
+       
     }
     public void nextPermutation(int[] nums) {
         int n=nums.length;
