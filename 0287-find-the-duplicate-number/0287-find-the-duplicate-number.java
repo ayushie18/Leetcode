@@ -8,46 +8,39 @@ class Solution {
         //     set.add(i);
         // }
         // return -1;
-        //
-        // Arrays.sort(nums); TC:O(n) but we don't have to modify the array
-        // for(int i=0;i<nums.length-1;i++){
-        //     if(nums[i]==nums[i+1]) return nums[i];
-        // }
-        
-        //  return -1;
+    // CYCLIC SORT
+    //    int i=0;
+    //    while(i<nums.length){
+    //     if(nums[i]==i+1) i++;
+    //     else{
+    //         if(nums[i]==nums[nums[i]-1]){
+    //             return nums[i];
+    //         }
+    //         swap(i,nums[i]-1,nums);
+    //     }
+    //    }
+    //    return 0;
+    //    }
+    // public void swap(int x,int y,int [] nums){
+    //     int temp=nums[x];
+    //     nums[x]=nums[y];
+    //     nums[y]=temp;
+    // }
 
-        // USING SLOW AND FAST POINTER
-        // int slow=0;
-        // int fast=0;
-        // do{
-        //     slow=nums[slow];
-        //     fast=nums[nums[fast]];
-        //      if(slow==fast) break;
-        // }
-        // while(slow!=fast);
-        // int temp=0;
-        // while(temp!=slow){
-        //     temp=nums[temp];
-        //     slow=nums[slow];
-        // }
-        // return temp;
-       int i=0;
-       while(i<nums.length){
-        if(nums[i]==i+1) i++;
-        else{
-            if(nums[i]==nums[nums[i]-1]){
-                return nums[i];
-            }
-            swap(i,nums[i]-1,nums);
+       // USING SLOW AND FAST POINTER
+        int slow=0;
+        int fast=0;
+        do{
+            slow=nums[slow];
+            fast=nums[nums[fast]];
+             if(slow==fast) break;
         }
-       }
-       return 0;
-
-    }
-    public void swap(int x,int y,int [] nums){
-        int temp=nums[x];
-        nums[x]=nums[y];
-        nums[y]=temp;
-
+        while(slow!=fast);
+        int temp=0;
+        while(temp!=slow){
+            temp=nums[temp];
+            slow=nums[slow];
+        }
+        return temp;
     }
 }
