@@ -30,12 +30,12 @@ class Solution {
        // USING SLOW AND FAST POINTER
         int slow=0;
         int fast=0;
-        do{
+        while(true){
             slow=nums[slow];
             fast=nums[nums[fast]];
              if(slow==fast) break;
         }
-        while(slow!=fast);
+        //while(slow!=fast);
         int temp=0;
         while(temp!=slow){
             temp=nums[temp];
