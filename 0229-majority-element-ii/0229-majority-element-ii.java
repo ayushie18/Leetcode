@@ -28,9 +28,7 @@ class Solution {
         else if(freq2==0){
             ans2=ele;
             freq2++;
-
         }
-    
         else{
             freq1--;
             freq2--;
