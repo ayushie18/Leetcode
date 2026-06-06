@@ -6,8 +6,9 @@ class Solution {
         for(int i=0;i<n;i++){
             if(freq==0){
                 ans=nums[i];
+                freq++;
             }
-            if(ans==nums[i]){
+            else if(ans==nums[i]){
                 freq++;
             }
             else{
