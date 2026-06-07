@@ -38,12 +38,15 @@ class Solution {
                         ans.add(nums[j]);
                         ans.add(nums[lo]);
                         ans.add(nums[hi]);
+                        if(!res.contains(ans)){
+                              res.add(ans);
+                        }
                         lo++;
                         hi--;
-                        while(lo<hi&&nums[lo]==nums[lo-1]) lo++;
-                        while(lo<hi&&nums[hi]==nums[hi+1]) hi--;
-                        if(res.contains(ans)) continue;
-                        res.add(ans);
+                        while(lo<hi&&nums[lo]==nums[lo-1]) lo++;// for duplictae element
+                        while(lo<hi&&nums[hi]==nums[hi+1]) hi--;// for duplicate elemnt
+                       
+                    
                         
                     }
                 }
