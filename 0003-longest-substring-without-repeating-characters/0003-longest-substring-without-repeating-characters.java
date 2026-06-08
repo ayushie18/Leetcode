@@ -29,7 +29,7 @@ class Solution {
         set.remove(s.charAt(i));
         i++;
     }
-   set.add(c);
+    set.add(c);
     max=Math.max(max,j-i+1);
     j++;
    }
