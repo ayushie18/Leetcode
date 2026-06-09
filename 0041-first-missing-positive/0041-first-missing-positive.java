@@ -4,10 +4,10 @@ class Solution {
         int i=0;
         while(i<n){
             int correctIdx=nums[i]-1;
-            if(correctIdx<0 || correctIdx>=n){
+            if(correctIdx<0 || correctIdx>=n){// IMP because here we have -ve no. , 0 ...
                 i++;
             }
-            else if(nums[correctIdx]!=nums[i]){
+            else if(nums[i]!=nums[correctIdx]){
                 int temp=nums[correctIdx];
                 nums[correctIdx]=nums[i];
                 nums[i]=temp;
@@ -22,7 +22,7 @@ class Solution {
             return j+1;
           }
         }
-        return j+1;
+        return j+1;// when j cross nums array and answer is outside array
       
     }
 }
