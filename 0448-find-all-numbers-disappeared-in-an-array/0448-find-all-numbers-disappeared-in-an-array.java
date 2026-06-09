@@ -5,28 +5,45 @@ class Solution {
         // for(int i:nums){
         //     if(i>=1 && i<=n) present[i]=true;
         // }
-         List<Integer>ans=new ArrayList<>();
+        List<Integer>ans=new ArrayList<>();
         // for(int i=1;i<=n;i++){
         //     if(!present[i]){
         //        ans.add(i);
         //     }
         //  }
         // return ans;
-      HashMap<Integer,Integer> map=new HashMap<>();
-      for(int i:nums){
-        if(map.containsKey(i)){
-            int freq=map.get(i);
-            map.put(i,freq+1);
-        }
-        else map.put(i,1);
+    //   HashMap<Integer,Integer> map=new HashMap<>();
+    //   for(int i:nums){
+    //     if(map.containsKey(i)){
+    //         int freq=map.get(i);
+    //         map.put(i,freq+1);
+    //     }
+    //     else map.put(i,1);
     
-      }
-      for(int i=1;i<=n;i++){
-          if(!map.containsKey(i)){
-            ans.add(i);
-       }
-
-      }
+    //   }
+    //   for(int i=1;i<=n;i++){
+    //       if(!map.containsKey(i)){
+    //         ans.add(i);
+    //    }
+    //   }
+    int i=0;
+    while(i<nums.length){
+        if(nums[i]!=nums[nums[i]-1]){
+            int temp=nums[nums[i]-1];
+            nums[nums[i]-1]=nums[i];
+            nums[i]=temp;
+           
+        }
+        else{
+            i++;
+        }
+    }
+    for(int j=0;j<nums.length;j++){
+        if(nums[j]!=j+1){
+            ans.add(j+1);
+        }
+    }
+    
 
     return ans;
     }
