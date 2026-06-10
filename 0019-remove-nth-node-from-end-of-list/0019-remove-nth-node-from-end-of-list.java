@@ -16,17 +16,29 @@ class Solution {
             len++;
             temp=temp.next;
         }
-        if(len==n) return head.next;
-        temp=head;
-        int c=0;
-        while(c<(len-n-1)){
-           temp=temp.next;
-           c++;
+        // if(len==n) return head.next;
+        // temp=head;
+        // int c=0;
+        // while(c<(len-n-1)){
+        //    temp=temp.next;
+        //    c++;
+        // }
+        // temp.next=temp.next.next;
+        // return head;
+        ListNode slow=head;
+        ListNode fast=head;
+        for(int i=1;i<=n;i++){
+            fast=fast.next;
         }
-        temp.next=temp.next.next;
-        
+        if(fast==null){
+            return head.next;
+        }
+        while(fast.next!=null){
+            slow=slow.next;
+            fast=fast.next;
 
-     return head;
-        
-    }
+        }
+        slow.next=slow.next.next;
+        return head;
+   }
 }
