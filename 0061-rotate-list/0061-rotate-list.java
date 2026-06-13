@@ -26,10 +26,10 @@ class Solution {
         }
         temp.next=head;
 
-        int remainingNodes=len-k;
+        int remainingNodes=len-k-1;
         int i=0;
         temp=head;
-        while(i<remainingNodes-1){
+        while(i<remainingNodes){
             temp=temp.next;
             i++;
 
