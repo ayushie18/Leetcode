@@ -12,7 +12,7 @@ class Solution {
                 sum+=weights[idx];
             }
             int val=sum%26;
-            ans+=arr[val];  
+            ans+=(char)('z'-val);  
             
 
         }
