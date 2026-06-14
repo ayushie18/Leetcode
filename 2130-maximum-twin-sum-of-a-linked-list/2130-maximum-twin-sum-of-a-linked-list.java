@@ -37,8 +37,6 @@ class Solution {
         //    max=Math.max(sum,max);
         //    i++;
         //    j--;
-
-            
         // }
         ListNode slow=head;
         ListNode fast=head;
