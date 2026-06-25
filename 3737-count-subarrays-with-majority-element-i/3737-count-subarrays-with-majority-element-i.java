@@ -4,15 +4,25 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             int count=0;
             for(int j=i;j<nums.length;j++){
+                // if(nums[j]==target){
+                //     count++;
+                // }
+                // if(count>(j-i+1)/2){
+                //     ans++;
+                // }
                 if(nums[j]==target){
                     count++;
                 }
-                if(count>(j-i+1)/2){
+                else{
+                    count--;
+                }
+                
+                if(count>0){
                     ans++;
                 }
 
             }
         }
         return ans;
-  }
+    }
 }
