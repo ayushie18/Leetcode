@@ -8,34 +8,25 @@ class Solution {
 
         if(sum%2!=0) return false;
         int target=sum/2;
-        int dp[][] =new int[n+1][target+1];
-        for(int[] row:dp){
-            Arrays.fill(row,-1);
-        }
+        Boolean dp[][] =new Boolean[n+1][target+1];
 
         return subsetSum(n,nums,target,dp);
     }
-    public boolean subsetSum(int n,int[] nums,int target,int[][]dp){
+    public boolean subsetSum(int n,int[] nums,int target,Boolean[][]dp){
         if(target==0) return true;
         if(n==0) return false;
-        if(dp[n][target]!=-1) return( dp[n][target]==1);
+        if(dp[n][target]!=null) return dp[n][target];
 
-        boolean ans=false;
         boolean pick=false;
         if(nums[n-1]<=target){
            pick =subsetSum(n-1,nums,target-nums[n-1],dp);
         }
            boolean skip=subsetSum(n-1,nums,target,dp);
-           ans=pick||skip;
          
 
+        dp[n][target]=pick||skip;   
 
-        if(ans){
-            dp[n][target]=1;
-        }
-        else dp[n][target]=0;
-
-    return ans;    
-       
+        return dp[n][target];
+         
     }
 }
