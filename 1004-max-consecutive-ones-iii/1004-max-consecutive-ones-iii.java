@@ -3,24 +3,23 @@ class Solution {
         int left=0;
         int right=0;
         int maxLen=0;
-        int zeros=0;
+        int zeroes=0;
          while(right<nums.length){
             if(nums[right]==0){
-                zeros++;
+                zeroes++;
             }
-
-            while(zeros>k){
-            if(nums[left]==0) zeros--;
-            left++;
-
-            }
-            if(zeros<=k){
+            if(zeroes>k){
+                if(nums[left]==0) zeroes--;
+                left++;
+            }    
+            if(zeroes<=k){
                int len=right-left+1;
                 maxLen=Math.max(len,maxLen);
             }
 
-            right++;
-
+            
+          right++;
+            
          }
          return maxLen;
         
