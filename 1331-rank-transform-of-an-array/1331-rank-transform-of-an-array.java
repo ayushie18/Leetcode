@@ -18,9 +18,9 @@ class Solution {
             
         }
         for(int i=0;i<arr.length;i++){
-            if(map.containsKey(arr[i])){
+           // if(map.containsKey(arr[i])){
               ans[i]=map.get(arr[i]);
-            }
+            
         }
 
     return ans;
