@@ -14,7 +14,7 @@ class Solution {
             count=(count+freq)%mod;
         }
 
-        return count%mod;
+        return count;
         
     }
 }
