@@ -12,23 +12,24 @@ class Solution {
         else return a;
     }
     public int gcdOfOddEvenSums(int n) {
-        int sumOdd=0;
-        while(n>0){
-            int val=1;
-            sumOdd+=val;
-            val+=2;
-            n--;
-        }
+        // int sumOdd=0;
+        // while(n>0){
+        //     int val=1;
+        //     sumOdd+=val;
+        //     val+=2;
+        //     n--;
+        // }
 
-        int sumEven=0;
-        while(n>0){
-            int val=2;
-            sumEven+=val;
-            val+=2;
-            n--;
-        }
+        // int sumEven=0;
+        // while(n>0){
+        //     int val=2;
+        //     sumEven+=val;
+        //     val+=2;
+        //     n--;
+        // }
 
-        return helper(sumOdd,sumEven);
+        // return helper(sumOdd,sumEven);
+        return n;
         
     }
 }
