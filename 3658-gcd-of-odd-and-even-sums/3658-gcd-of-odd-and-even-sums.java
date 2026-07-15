@@ -1,16 +1,16 @@
 class Solution {
-    public int helper(int a, int b){
-    while(a>0 && b>0){    
-        if(a>b){
-            a=a%b;
-        }
-        else{
-            b=b%a;
-        }
-    }
-        if(a==0) return b;
-        else return a;
-    }
+    // public int helper(int a, int b){
+    // while(a>0 && b>0){    
+    //     if(a>b){
+    //         a=a%b;
+    //     }
+    //     else{
+    //         b=b%a;
+    //     }
+    // }
+    //     if(a==0) return b;
+    //     else return a;
+    // }
     public int gcdOfOddEvenSums(int n) {
         // int sumOdd=0;
         // while(n>0){
