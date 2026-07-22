@@ -2,7 +2,6 @@ class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
         int sum=0;
         HashMap<Integer,Integer> map=new HashMap<>();
-
         for(int i=0;i<nums.length;i++){
             int len=0;
             sum+=nums[i];
@@ -22,11 +21,8 @@ class Solution {
                 len=i-map.get(rem);
                 if(len>=2) return true;
             }
-
-
-            if(!map.containsKey(rem)){
+            else{
                 map.put(rem,i);
-
             }
 
          }
