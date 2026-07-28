@@ -15,8 +15,12 @@ class Solution {
 
         // Find the right part after the left part
         int rightPos = s.indexOf(right, leftPos + left.length());
+        if(rightPos==-1){
+            return false;
+        }
 
-        return rightPos != -1;
+        return true;
+
         
     }
 }
