@@ -23,10 +23,8 @@ class Solution {
                 q.add(new Pair(i,j,0));
                 vis[i][j]=2;
             }
-            else{
-                if(grid[i][j]==1){
+            else if(grid[i][j]==1){
                     countFresh++;
-                }
             }
         }
     }
