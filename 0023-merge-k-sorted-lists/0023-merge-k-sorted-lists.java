@@ -23,8 +23,8 @@ class Solution {
 
         while(!minHeap.isEmpty()){
             ListNode curr=minHeap.poll();
-            temp.next=curr;
-            temp=temp.next;
+            temp.next=curr;// attach node
+            temp=temp.next; // move temp forward
 
             if(curr.next!=null){
                 minHeap.add(curr.next);
