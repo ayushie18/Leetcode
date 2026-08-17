@@ -1,55 +1,57 @@
 class Solution {
+    class Pair{
+        char ch;
+        int freq;
+        Pair(char ch,int freq){
+            this.ch=ch;
+            this.freq=freq;
+        }
+    }
     public String reorganizeString(String s) {
-        // int[] freq=new int[26];
-        // for(int i=0;i<s.length();i++){
-        //     char ch=s.charAt(i);
-        //     freq[ch-'a']++;
-        // }
-        HashMap<Character,Integer>map=new HashMap<>();
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            map.put(ch,map.getOrDefault(ch,0)+1);
+    HashMap<Character,Integer>map=new HashMap<>();
 
-        }
+    for(int i=0;i<s.length();i++){
+        char ele=s.charAt(i);
+        map.put(ele,map.getOrDefault(ele,0)+1);
 
-        PriorityQueue<int[]>maxHeap=new PriorityQueue<>((a,b)->b[1]-a[1]);
-        for(char ch:map.keySet()){
-          maxHeap.add(new int[]{ ch,map.get(ch)
-        });
-       }
-
-       StringBuilder ans=new StringBuilder();
-
-       while(maxHeap.size()>1){
-        int[] first=maxHeap.poll();
-        int[] second=maxHeap.poll();
-
-        ans.append((char)first[0]);
-        ans.append((char)second[0]);
-
-        first[1]--;
-        second[1]--;
-
-        if(first[1]>0){
-            maxHeap.add(first);
-        }
-
-        if(second[1]>0){
-            maxHeap.add(second);
-        }
-       }
-       while(!maxHeap.isEmpty()){
-        int [] lastele=maxHeap.poll();
-        if(lastele[1]>1){
-            return "";
-        }
-        ans.append((char)lastele[0]);
-
-       
     }
 
+    PriorityQueue<Pair> maxHeap=new PriorityQueue<>((a,b)->b.freq-a.freq);
 
-     return ans.toString();
+    for(char ele:map.keySet()){
+        maxHeap.add(new Pair(ele,map.get(ele)));
+    }
+
+    StringBuilder ans=new StringBuilder();
+    while(maxHeap.size()>1){
+        Pair first=maxHeap.poll();
+        Pair second=maxHeap.poll();
+
+        ans.append(first.ch);
+        ans.append(second.ch);
+
+        if((first.freq-1)>0){
+            maxHeap.add(new Pair(first.ch,first.freq-1));
+        }
+
+        if((second.freq-1)>0){
+        maxHeap.add(new Pair(second.ch,second.freq-1));
+        }
+        
+    }
+
+    while(!maxHeap.isEmpty()){
+        Pair last=maxHeap.poll();
+        int f=last.freq;
+        if(f>1){
+            return "";
+        }
+        else{
+            ans.append(last.ch);
+        }
+    }
+
+   return ans.toString();
         
     }
 }
