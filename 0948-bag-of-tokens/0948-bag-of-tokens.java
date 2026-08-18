@@ -12,12 +12,12 @@ class Solution {
             power-=tokens[i];
             i++;
           }
-          else if(score>0){
+        else if(score>0){
             score--;
             power+=tokens[j];
             j--;
           }
-          else{
+          else{// for cases which we skip
             break;
           }
           ans=Math.max(ans,score);
