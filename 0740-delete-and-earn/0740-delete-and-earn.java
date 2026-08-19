@@ -14,21 +14,20 @@ class Solution {
         }
 
         // House Robber DP
-        int prev2 = 0;
-        int prev1 = 0;
+       int[] dp = new int[max + 1];
 
-        for (int i = 1; i <= max; i++) {
+        dp[0] = 0;
+        dp[1] = points[1];
 
-            int take = points[i] + prev2;
-            int skip = prev1;
+        for (int i = 2; i <= max; i++) {
 
-            int curr = Math.max(take, skip);
+            int take = points[i] + dp[i - 2];
+            int skip = dp[i - 1];
 
-            prev2 = prev1;
-            prev1 = curr;
+            dp[i] = Math.max(take, skip);
         }
 
-        return prev1;
+        return dp[max];
         
     }
 }
