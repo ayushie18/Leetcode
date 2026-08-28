@@ -6,7 +6,7 @@ class Solution {
             ans.add(s);
             return;
         }
-
+        
         if(open<n) print(open+1,close,n,s+"(");
         if(close<open)print(open,close+1,n,s+")");
     }
