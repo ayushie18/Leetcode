@@ -43,8 +43,8 @@ class Solution {
                         }
                         lo++;
                         hi--;
-                        while(lo<hi&&nums[lo]==nums[lo-1]) lo++;// for duplictae element
-                        while(lo<hi&&nums[hi]==nums[hi+1]) hi--;// for duplicate elemnt
+                        while(lo<hi&&nums[lo]==nums[lo-1]) lo++;// to skip  duplictae element
+                        while(lo<hi&&nums[hi]==nums[hi+1]) hi--;// skip duplicate elemnt
                        
                     
                         
