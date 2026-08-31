@@ -9,7 +9,7 @@ class Solution {
         }
     }
     
-    public void countInversion(Number [] a,Number[] b){
+    public void countSmall(Number [] a,Number[] b){
         int i=0;
         int j=0;
         int rightCount=0;
@@ -60,7 +60,7 @@ class Solution {
         }
         mergeSort(a);
         mergeSort(b);
-        countInversion(a,b);
+        countSmall(a,b);
         merge(nums,a,b);
     }
     public List<Integer> countSmaller(int[] nums) {
