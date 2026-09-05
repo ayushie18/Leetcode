@@ -5,9 +5,8 @@ class Solution {
         int mid=lo+(hi-lo)/2;
         int pivot=nums[mid];
 
-        int s=pivot;
         nums[mid]=nums[lo];
-        nums[lo]=s;
+        nums[lo]=pivot;
 
         while(i<=j){
             while(i<=hi && nums[i]<=pivot) i++;
