@@ -43,10 +43,10 @@ class Solution {
          if(correctIdx==target){
             return nums[target];
          }
-         if(target>correctIdx){
+         else if(target>correctIdx){
             lo=correctIdx+1;
          }
-         if(target<correctIdx){
+        else if(target<correctIdx){
             hi=correctIdx-1;
          }
 
