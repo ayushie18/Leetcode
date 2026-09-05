@@ -1,0 +1,58 @@
+class Solution {
+    public int partition(int[]nums,int lo,int hi){
+        int i=lo+1;
+        int j=hi;
+
+        while(i<=j){
+            while(i<=hi && nums[i]<=nums[lo] ) i++;
+            while(j>=lo+1 && nums[j]>nums[lo] ) j--;
+
+            if(i<j){
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+
+                i++;
+                j--;
+            }
+           
+        }
+         int t=nums[j];
+         nums[j]=nums[lo];
+         nums[lo]=t;
+         return j;
+
+    }
+    public void QuickSort(int[]nums,int lo,int hi){
+        if(lo>=hi) return;
+
+        int correctIdx=partition(nums,lo,hi);
+        QuickSort(nums,lo,correctIdx-1);
+        QuickSort(nums,correctIdx+1,hi);
+
+    }
+    public int findKthLargest(int[] nums, int k) {
+        int target=nums.length-k;
+
+        int lo=0;
+        int hi=nums.length-1;
+       
+        while(lo<=hi){
+         int correctIdx=partition(nums,lo,hi);
+
+         if(correctIdx==target){
+            return nums[target];
+         }
+         if(target>correctIdx){
+            lo=correctIdx+1;
+         }
+         if(target<correctIdx){
+            hi=correctIdx-1;
+         }
+
+        }
+
+
+       return -1; 
+    }
+}
