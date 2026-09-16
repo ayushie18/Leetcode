@@ -18,6 +18,27 @@ class Solution {
                 int total=1+cuts(k+1,j,s,dp);
                 min=Math.min(total,min);
             }
+
+        //    int left=0; ALL TEST CASES NOT PASSED WITH THIS OPTIMISATION 
+        //    if(dp[i][k]!=-1){
+        //     left=dp[i][k];
+        //    }
+        //    else{
+        //     left=cuts(i,k,s,dp);
+        //     dp[i][k]=left;
+        //    } 
+        //    int right=0;
+        //    if(dp[k+1][j]!=-1){
+        //     right=dp[k+1][j];
+        //    }
+        //    else{
+        //     right=cuts(k+1,j,s,dp);
+        //     dp[k+1][j]=right;
+        //    }
+
+        //   // int total=1+cuts(i,k,s,dp)+cuts(k+1,j,s,dp);
+        //    int total=1+left+right;
+        //    min=Math.min(total,min);
         }
         return dp[i][j]=min;
     }
