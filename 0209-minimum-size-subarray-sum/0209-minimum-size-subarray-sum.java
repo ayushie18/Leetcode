@@ -24,9 +24,8 @@ class Solution {
           j++;
         }
 
-        if (min==Integer.MAX_VALUE){
-        return 0;
-      } 
+        if (min==Integer.MAX_VALUE) return 0;
+      
      return min; 
     }
 }
